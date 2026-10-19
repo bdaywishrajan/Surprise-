@@ -22,6 +22,7 @@ button{margin-top:14px;width:100%;font:inherit;font-size:18px;font-weight:700;pa
 #err{min-height:24px;margin:12px 0 0;color:var(--err);font-size:15px}
 .shake{animation:shake .4s}
 @keyframes shake{25%{transform:translateX(-8px)}75%{transform:translateX(8px)}}
+#music{width:auto;margin:0 0 16px;padding:8px 16px;font-size:15px}
 #wish{display:none}
 #wish h1{font-size:30px;color:var(--gold)}
 #wish p{color:var(--ink);text-align:left;font-family:'Dancing Script','Brush Script MT',cursive;font-size:22px;line-height:1.55;font-weight:600}
@@ -44,6 +45,8 @@ button{margin-top:14px;width:100%;font:inherit;font-size:18px;font-weight:700;pa
   </div>
 
   <div class="card" id="wish">
+    <audio id="song" src="song.mp3" loop preload="auto"></audio>
+    <button id="music" type="button">🎵 Song play pannu</button>
     <h1>Happy Birthday, Eruma! 🐃🎂</h1>
     <p>Namma school la celebrate panra last birthday idhu 🏫🎂 Yosichu paatha, evlo seekiram time odiduchu la? 🥺⏳</p>
     <p>Indha school life la unna maari oru best friend kedaichadhu en life-oda periya blessing. Namma sirichadhu 😂, sandai pottadhu 😤, ellame life-long ninaivu 📸✨</p>
@@ -83,10 +86,22 @@ function party(){
   }
 }
 
+var song = document.getElementById('song');
+var musicBtn = document.getElementById('music');
+function setBtn(){ musicBtn.textContent = song.paused ? '🎵 Song play pannu' : '⏸️ Song pause'; }
+function startSong(){
+  try { var p = song.play(); if (p && p.catch) { p.catch(function(){ setBtn(); }); } } catch (e) {}
+  setBtn();
+}
+musicBtn.addEventListener('click', function(){ if (song.paused) { startSong(); } else { song.pause(); setBtn(); } });
+song.addEventListener('play', setBtn);
+song.addEventListener('pause', setBtn);
+
 function check(){
   if (input.value.trim().toUpperCase() === SECRET){
     lock.style.display = 'none';
     wish.style.display = 'block';
+    startSong();
     party();
   } else {
     err.textContent = 'Code thappu! Innoru dhadava try pannu 🙈';
