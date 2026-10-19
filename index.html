@@ -38,7 +38,7 @@ button{margin-top:14px;width:100%;font:inherit;font-size:18px;font-weight:700;pa
   <div class="card" id="lock">
     <h1>Pig, unakku oru surprise 🎁</h1>
     <p>Secret code-a enter pannu, appo dhaan wish varum.<br>Hint: naan unakku kudutha gift la oru corner la code irukkum 🎁😉</p>
-    <input id="code" type="text" inputmode="numeric" autocomplete="off" autocapitalize="characters" aria-label="Secret code" placeholder="_ _ _ _">
+    <input id="code" type="text" inputmode="numeric" autocomplete="off" autocapitalize="characters" aria-label="Secret code" placeholder="_ _ _ _ _ _" maxlength="6">
     <button id="go">Open</button>
     <div id="err" role="alert"></div>
   </div>
@@ -63,7 +63,7 @@ button{margin-top:14px;width:100%;font:inherit;font-size:18px;font-weight:700;pa
 
 <script>
 // ✏️ Inga unga secret code-a maathikalam (uppercase la ezhudhunga)
-var SECRET = "1502";
+var SECRET = "021217";
 
 var input = document.getElementById('code');
 var err = document.getElementById('err');
