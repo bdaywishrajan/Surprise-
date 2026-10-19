@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>A secret for you</title>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@600&family=Pacifico&family=Quicksand:wght@500;700&display=swap">
+<style>
+:root{--bg:#2a1240;--card:#3b1a58;--ink:#fff4fb;--soft:#e9c8f2;--accent:#ffb3d9;--gold:#ffd77a;--err:#ffb0b0;
+box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}
+@media (prefers-color-scheme:dark){:root{--bg:#2a1240}}
+*{box-sizing:border-box}
+html,body{margin:0;min-height:100%;background:var(--bg);color:var(--ink);font-family:'Quicksand',system-ui,-apple-system,'Segoe UI',sans-serif}
+body{display:flex;align-items:center;justify-content:center;min-height:100vh;padding:20px;overflow-x:hidden}
+.wrap{width:100%;max-width:420px;text-align:center}
+.card{background:var(--card);border:2px dashed var(--accent);border-radius:20px;padding:32px 22px}
+h1{font-family:'Pacifico','Brush Script MT',cursive;font-size:26px;line-height:1.5;margin:0 0 12px;font-weight:400}
+p{font-size:17px;line-height:1.6;margin:0 0 18px;color:var(--soft)}
+input{width:100%;font:inherit;font-size:22px;letter-spacing:.2em;text-align:center;padding:14px;border-radius:12px;border:2px solid var(--accent);background:#2a1240;color:var(--ink)}
+input:focus-visible,button:focus-visible{outline:3px solid var(--gold);outline-offset:2px}
+button{margin-top:14px;width:100%;font:inherit;font-size:18px;font-weight:700;padding:14px;border:0;border-radius:12px;background:var(--accent);color:#2a1240;cursor:pointer}
+#err{min-height:24px;margin:12px 0 0;color:var(--err);font-size:15px}
+.shake{animation:shake .4s}
+@keyframes shake{25%{transform:translateX(-8px)}75%{transform:translateX(8px)}}
+#wish{display:none}
+#wish h1{font-size:30px;color:var(--gold)}
+#wish p{color:var(--ink);text-align:left;font-family:'Dancing Script','Brush Script MT',cursive;font-size:22px;line-height:1.55;font-weight:600}
+.sign{text-align:right!important;font-style:italic;color:var(--soft)!important}
+.letter{margin-top:22px;padding-top:18px;border-top:1px dashed var(--accent)}
+.letter p{font-family:'Dancing Script','Brush Script MT',cursive;font-size:22px;line-height:1.55;font-weight:600}
+.confetti{position:fixed;top:-12px;width:10px;height:14px;pointer-events:none;animation:fall linear forwards}
+@keyframes fall{to{transform:translateY(110vh) rotate(720deg)}}
+@media (prefers-reduced-motion:reduce){.confetti{display:none}.shake{animation:none}}
+</style>
+</head>
+<body>
+<div class="wrap">
+  <div class="card" id="lock">
+    <h1>Pig, unakku oru surprise 🎁</h1>
+    <p>Secret code-a enter pannu, appo dhaan wish varum.<br>Hint: naan unakku kudutha gift la oru corner la code irukkum 🎁😉</p>
+    <input id="code" type="text" inputmode="numeric" autocomplete="off" autocapitalize="characters" aria-label="Secret code" placeholder="_ _ _ _">
+    <button id="go">Open</button>
+    <div id="err" role="alert"></div>
+  </div>
+
+  <div class="card" id="wish">
+    <h1>Happy Birthday, Eruma! 🐃🎂</h1>
+    <p>Namma school la celebrate panra last birthday idhu 🏫🎂 Yosichu paatha, evlo seekiram time odiduchu la? 🥺⏳</p>
+    <p>Indha school life la unna maari oru best friend kedaichadhu en life-oda periya blessing. Namma sirichadhu 😂, sandai pottadhu 😤, ellame life-long ninaivu 📸✨</p>
+    <p>School mudinjadhum namma vera vera vazhila pogalam, aana namma friendship eppavum maaradhu. Nee enga irundhaalum, enakku nee eppavum en Pig dhaan 💜</p>
+    <p>Indha varusham unakku ellame nalladhaa nadakkanum 🌈 Nee ninaikkura ellame kedaikkanum 🎯 Unakkaaga naan eppavum irukken 🤗</p>
+    <p>Eppavum sirichute iru, santhoshama iru. Un smile dhaan best 😄🌸 Kavalai ellam dhooram pogattum, happiness mattum un kooda irukkattum 🥳🎈</p>
+    <p>Innaiku full-a nee dhaan queen 👑 Last school bday nalla enjoy pannu 🎉💖</p>
+    <div class="letter">
+      <p>Happy Birthday to my bestieee! 🎉🥳 Nee en best friend mattum illa, en forever person 💞, en safe place 🏡, en biggest blessing 🌸. Nee en kooda irukkum bodhu life romba azhagaa irukku ✨. Un smile en worst days-ayum best days-a maathidum 😊🌈, un presence enakku romba peace tharudhu 🕊️.</p>
+      <p>Naan onnum sollama-ye nee ennai purinjukkuva 🥹, adhu romba special 💖. En highs, en lows, en craziness 🤪, en kanneer 😢, en kanavugal 🌙 ellaathaiyum paathutu, nee innum en kooda irukka 🤗.</p>
+      <p>Un kooda irukkura ovvoru nimishamum priceless 💎 nonstop-a sirichaalum 😂, deep-a emotional-a pesinaalum 💭, illa summa amaidhi-a ukkandhirundhaalum 🫂. Naan ovvoru naalum unakkaaga romba nandri solren 🙏💕</p>
+      <p>Un special day 🎂 la unakku endless happiness 😄, success 🏆, nalla health 🍀, ulagathula irukkura ella anbum kedaikkanum 🌍❤️. Un kanavu ellame nijam aaganum ⭐, life eppavum unna sirikka vechukitte irukkanum 😊. Nee eppavum ippadi azhagaana manasoda irukkanum, always and forever! 👑💜</p>
+    </div>
+    <p class="sign">— Un best friend 💜</p>
+  </div>
+</div>
+
+<script>
+// ✏️ Inga unga secret code-a maathikalam (uppercase la ezhudhunga)
+var SECRET = "1502";
+
+var input = document.getElementById('code');
+var err = document.getElementById('err');
+var lock = document.getElementById('lock');
+var wish = document.getElementById('wish');
+
+function party(){
+  var colors = ['#ffb3d9','#ffd77a','#b9a2ff','#8fe3cf','#ff9aa2'];
+  for (var i = 0; i < 70; i++){
+    var c = document.createElement('div');
+    c.className = 'confetti';
+    c.style.left = Math.random() * 100 + 'vw';
+    c.style.background = colors[i % colors.length];
+    c.style.animationDuration = (2 + Math.random() * 3) + 's';
+    c.style.animationDelay = (Math.random() * 1.2) + 's';
+    document.body.appendChild(c);
+  }
+}
+
+function check(){
+  if (input.value.trim().toUpperCase() === SECRET){
+    lock.style.display = 'none';
+    wish.style.display = 'block';
+    party();
+  } else {
+    err.textContent = 'Code thappu! Innoru dhadava try pannu 🙈';
+    lock.classList.remove('shake');
+    void lock.offsetWidth;
+    lock.classList.add('shake');
+  }
+}
+document.getElementById('go').addEventListener('click', check);
+input.addEventListener('keydown', function(e){ if (e.key === 'Enter') check(); });
+</script>
+</body>
+</html>
